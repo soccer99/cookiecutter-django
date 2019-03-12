@@ -57,73 +57,12 @@ Features
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
 
 
-Optional Integrations
----------------------
-
-*These features can be enabled during initial project setup.*
-
-* Serve static files from Amazon S3 or Whitenoise_
-* Configuration for Celery_ and Flower_ (the latter in Docker setup only)
-* Integration with MailHog_ for local email testing
-* Integration with Sentry_ for error logging
-
-.. _Bootstrap: https://github.com/twbs/bootstrap
-.. _django-environ: https://github.com/joke2k/django-environ
-.. _12-Factor: http://12factor.net/
-.. _django-allauth: https://github.com/pennersr/django-allauth
-.. _django-avatar: https://github.com/grantmcconnaughey/django-avatar
-.. _Procfile: https://devcenter.heroku.com/articles/procfile
-.. _Mailgun: http://www.mailgun.com/
-.. _Whitenoise: https://whitenoise.readthedocs.io/
-.. _Celery: http://www.celeryproject.org/
-.. _Flower: https://github.com/mher/flower
-.. _Anymail: https://github.com/anymail/django-anymail
-.. _MailHog: https://github.com/mailhog/MailHog
-.. _Sentry: https://sentry.io/welcome/
-.. _docker-compose: https://github.com/docker/compose
-.. _PythonAnywhere: https://www.pythonanywhere.com/
-.. _Caddy: https://caddyserver.com/
-.. _LetsEncrypt: https://letsencrypt.org/
-
 Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
 * Uses PostgreSQL everywhere (9.2+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
-
-Support this Project!
-----------------------
-
-This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
-
-* Daniel Roy Greenfeld, Project Lead (`GitHub <https://github.com/pydanny>`_, `Patreon <https://www.patreon.com/danielroygreenfeld>`_): expertise in Django and AWS ELB.
-
-* Nikita Shupeyko, Core Developer (`GitHub <https://github.com/webyneter>`_): expertise in Python/Django, hands-on DevOps and frontend experience.
-
-Projects that provide financial support to the maintainers:
-
-Two Scoops of Django 1.11
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
-   :name: Two Scoops of Django 1.11 Cover
-   :align: center
-   :alt: Two Scoops of Django
-   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
-
-Two Scoops of Django is the best dessert-themed Django reference in the universe
-
-pyup
-~~~~~~~~~~~~~~~~~~
-
-.. image:: https://pyup.io/static/images/logo.png
-   :name: pyup
-   :align: center
-   :alt: pyup
-   :target: https://pyup.io/
-
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -137,7 +76,7 @@ First, get Cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django
+    $ cookiecutter https://github.com/soccer99/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
@@ -161,13 +100,8 @@ Answer the prompts with your own desired options_. For example::
     timezone [UTC]: America/Los_Angeles
     use_whitenoise [n]: n
     use_celery [n]: y
-    use_mailhog [n]: n
-    use_sentry [n]: y
-    use_pycharm [n]: y
-    windows [n]: n
-    use_docker [n]: n
-    use_heroku [n]: y
-    use_compressor [n]: y
+    use_redis [n]: y
+    use_rabbitmq [n]: n
     Select postgresql_version:
     1 - 10.3
     2 - 10.2
@@ -177,18 +111,6 @@ Answer the prompts with your own desired options_. For example::
     6 - 9.4
     7 - 9.3
     Choose from 1, 2, 3, 4 [1]: 1
-    Select js_task_runner:
-    1 - None
-    2 - Gulp
-    Choose from 1, 2 [1]: 1
-    custom_bootstrap_compilation [n]: n
-    Select open_source_license:
-    1 - MIT
-    2 - BSD
-    3 - GPLv3
-    4 - Apache Software License 2.0
-    5 - Not open source
-    Choose from 1, 2, 3, 4, 5 [1]: 1
     keep_local_envs_in_vcs [y]: y
     debug[n]: n
 

@@ -235,10 +235,10 @@ def set_flags_in_envs(
     celery_flower_user,
     debug=False,
 ):
-    local_django_envs_path = os.path.join(".envs", ".local", ".django")
-    production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+    local_django_envs_path = os.path.join("_envs", "local", "django")
+    production_django_envs_path = os.path.join("_envs", "production", "django")
+    local_postgres_envs_path = os.path.join("_envs", "local", "postgres")
+    production_postgres_envs_path = os.path.join("_envs", "production", "postgres")
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
@@ -279,65 +279,12 @@ def main():
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
-        remove_open_source_files()
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
-    if "{{ cookiecutter.use_pycharm }}".lower() == "n":
-        remove_pycharm_files()
-
-    if "{{ cookiecutter.use_docker }}".lower() == "y":
-        remove_utility_files()
-    else:
-        remove_docker_files()
-
-    if "{{ cookiecutter.use_heroku }}".lower() == "n":
-        remove_heroku_files()
-
-    if (
-        "{{ cookiecutter.use_docker }}".lower() == "n"
-        and "{{ cookiecutter.use_heroku }}".lower() == "n"
-    ):
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            print(
-                INFO + ".env(s) are only utilized when Docker Compose and/or "
-                       "Heroku support is enabled so keeping them does not "
-                       "make sense given your current setup." + TERMINATOR
-            )
-        remove_envs_and_associated_files()
-    else:
-        append_to_gitignore_file(".env")
-        append_to_gitignore_file(".envs/*")
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            append_to_gitignore_file("!.envs/.local/")
-
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
-        remove_gulp_files()
-        remove_packagejson_file()
-    if (
-        "{{ cookiecutter.js_task_runner }}".lower() != "none"
-        and "{{ cookiecutter.use_docker }}".lower() == "y"
-    ):
-        print(
-            WARNING
-            + "Docker and {} JS task runner ".format(
-                "{{ cookiecutter.js_task_runner }}".lower().capitalize()
-            )
-            + "working together not supported yet. "
-              "You can continue using the generated project like you "
-              "normally would, however you would need to add a JS "
-              "task runner service to your Docker Compose configuration "
-              "manually." + TERMINATOR
-        )
-
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_app()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_celery_compose_dirs()
-
-    if "{{ cookiecutter.use_travisci }}".lower() == "n":
-        remove_dottravisyml_file()
+        remove_celery_compose_dirs()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

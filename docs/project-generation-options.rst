@@ -37,15 +37,6 @@ open_source_license:
 timezone:
     The value to be used for the ``TIME_ZONE`` setting of the project.
 
-windows:
-    Indicates whether the project should be configured for development on Windows.
-
-use_pycharm:
-    Indicates whether the project should be configured for development with PyCharm_.
-
-use_docker:
-    Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
-
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
@@ -57,44 +48,23 @@ postgresql_version:
     6. 9.4
     7. 9.3
 
-js_task_runner:
-    Select a JavaScript task runner. The choices are:
-
-    1. None
-    2. Gulp_
-
-custom_bootstrap_compilation:
-    Indicates whether the project should support Bootstrap recompilation
-    via the selected JavaScript task runner's task. This can be useful
-    for real-time Bootstrap variable alteration.
-
-use_compressor:
-    Indicates whether the project should be configured to use `Django Compressor`_.
-
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
-use_mailhog:
-    Indicates whether the project should be configured to use MailHog_.
+use_rabbitmq:
+    Indicates whether the project should be configured to use Rabbitmq_.
 
-use_sentry:
-    Indicates whether the project should be configured to use Sentry_.
+use_redis:
+    Indicates whether the project should be configured to use Redis_.
+
+need_authentication:
+    Whether this app needs end user authentication (does not affect django admin login)
+
+only_api:
+    Is this app only an API?  (does not need html templates)
 
 use_whitenoise:
     Indicates whether the project should be configured to use WhiteNoise_.
-
-use_heroku:
-    Indicates whether the project should be configured so as to be deployable
-    to Heroku_.
-
-use_travisci:
-    Indicates whether the project should be configured to use `Travis CI`_.
-
-keep_local_envs_in_vcs:
-    Indicates whether the project's ``.envs/.local/`` should be kept in VCS
-    (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged). 
-    Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
 
 debug:
     Indicates whether the project should be configured for debugging.
