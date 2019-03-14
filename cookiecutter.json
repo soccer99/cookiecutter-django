@@ -18,8 +18,6 @@
     "9.4",
     "9.3"
   ],
-  "need_authentication": "n",
-  "only_api": "y",
   "use_celery": "n",
   "use_rabbitmq": "n",
   "use_redis": "y",

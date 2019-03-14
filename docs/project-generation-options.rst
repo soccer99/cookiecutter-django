@@ -57,12 +57,6 @@ use_rabbitmq:
 use_redis:
     Indicates whether the project should be configured to use Redis_.
 
-need_authentication:
-    Whether this app needs end user authentication (does not affect django admin login)
-
-only_api:
-    Is this app only an API?  (does not need html templates)
-
 use_whitenoise:
     Indicates whether the project should be configured to use WhiteNoise_.
 
