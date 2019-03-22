@@ -4,15 +4,15 @@ services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/production/django/Dockerfile
+      dockerfile: ./docker/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
     {%- if cookiecutter.use_redis == 'y' %}
     depends_on:
       - redis
     {% endif %}
     env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
+      - ./_envs/production/django
+      - ./_envs/production/postgres
     command: /start
   {%- if cookiecutter.use_redis == 'y' %}
 

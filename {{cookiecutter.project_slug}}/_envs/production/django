@@ -3,8 +3,8 @@
 # DJANGO_READ_DOT_ENV_FILE=True
 DJANGO_SETTINGS_MODULE=config.settings.production
 DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
-DJANGO_ADMIN_URL=!!!SET DJANGO_ADMIN_URL!!!
-DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }}
+DJANGO_ADMIN_URL=admin/
+DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }},localhost,127.0.0.1
 
 # Security
 # ------------------------------------------------------------------------------
@@ -51,3 +51,8 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}
+
+# New Relic
+NEW_RELIC_KEY=
+NEW_RELIC_APP_NAME={{cookiecutter.project_slug}}
+NEW_RELIC_CONFIG_FILE=/app/newrelic.ini

@@ -57,7 +57,7 @@ def remove_pycharm_files():
 
 
 def remove_docker_files():
-    shutil.rmtree("compose")
+    shutil.rmtree("docker")
 
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
@@ -90,11 +90,7 @@ def remove_packagejson_file():
 
 
 def remove_celery_app():
-    shutil.rmtree(os.path.join("{{ cookiecutter.project_slug }}", "taskapp"))
-
-
-def remove_dottravisyml_file():
-    os.remove(".travis.yml")
+    shutil.rmtree(os.path.join("apps", "taskapp"))
 
 
 def append_to_project_gitignore(path):
@@ -260,13 +256,13 @@ def set_flags_in_settings_files():
 
 
 def remove_envs_and_associated_files():
-    shutil.rmtree(".envs")
+    shutil.rmtree("_envs")
     os.remove("merge_production_dotenvs_in_dotenv.py")
 
 
 def remove_celery_compose_dirs():
-    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
-    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
+    shutil.rmtree(os.path.join("docker", "local", "django", "celery"))
+    shutil.rmtree(os.path.join("docker", "production", "django", "celery"))
 
 
 def main():

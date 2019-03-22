@@ -8,7 +8,7 @@ services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/local/django/Dockerfile
+      dockerfile: ./docker/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
       - postgres
@@ -18,8 +18,8 @@ services:
     volumes:
       - .:/app
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./_envs/local/django
+      - ./_envs/local/postgres
     ports:
       - "8000:8000"
     command: /start
@@ -27,13 +27,13 @@ services:
   postgres:
     build:
       context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
+      dockerfile: ./docker/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
       - local_postgres_data_backups:/backups
     env_file:
-      - ./.envs/.local/.postgres
+      - ./_envs/local/postgres
   
   {%- if cookiecutter.use_redis == 'y' %}
   redis:
