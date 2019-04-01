@@ -25,15 +25,6 @@ domain_name:
 version:
     The version of the project at its inception.
 
-open_source_license:
-    A software license for the project. The choices are:
-
-    1. MIT_
-    2. BSD_
-    3. GPLv3_
-    4. `Apache Software License 2.0`_
-    5. Not open source
-
 timezone:
     The value to be used for the ``TIME_ZONE`` setting of the project.
 

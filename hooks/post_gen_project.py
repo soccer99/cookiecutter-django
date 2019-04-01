@@ -31,35 +31,8 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 DEBUG_VALUE = "debug"
 
 
-def remove_open_source_files():
-    file_names = [
-        "CONTRIBUTORS.txt",
-        "LICENSE",
-    ]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
-def remove_gplv3_files():
-    file_names = ["COPYING"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_utility_files():
     shutil.rmtree("utility")
-
-
-def remove_gulp_files():
-    file_names = ["gulpfile.js"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
-def remove_packagejson_file():
-    file_names = ["package.json"]
-    for file_name in file_names:
-        os.remove(file_name)
 
 
 def remove_celery_app():
@@ -247,9 +220,6 @@ def main():
         debug=debug,
     )
     set_flags_in_settings_files()
-
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
-        remove_gplv3_files()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_app()
