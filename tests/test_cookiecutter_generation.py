@@ -80,19 +80,3 @@ def test_flake8_compliance(cookies):
         sh.flake8(str(result.project))
     except sh.ErrorReturnCode as e:
         pytest.fail(e)
-
-
-def test_travis_invokes_pytest(cookies, context):
-    context.update({"use_travisci": "y"})
-    result = cookies.bake(extra_context=context)
-
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.basename == context["project_slug"]
-    assert result.project.isdir()
-
-    with open(f'{result.project}/.travis.yml', 'r') as travis_yml:
-        try:
-            assert yaml.load(travis_yml)['script'] == ['pytest']
-        except yaml.YAMLError as e:
-            pytest.fail(e)

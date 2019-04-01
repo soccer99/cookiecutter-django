@@ -18,10 +18,10 @@
     "9.4",
     "9.3"
   ],
-  "use_celery": "n",
-  "use_rabbitmq": "n",
+  "use_celery": "y",
+  "use_rabbitmq": "y",
   "use_redis": "y",
-  "use_whitenoise": "n",
+  "use_whitenoise": "y",
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
 }
