@@ -265,9 +265,7 @@ Session.vim
 tags
 
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' %}
-MailHog
-{%- endif %}
+
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/

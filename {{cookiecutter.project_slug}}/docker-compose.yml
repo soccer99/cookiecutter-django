@@ -12,9 +12,6 @@ services:
     image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
       - postgres
-      {%- if cookiecutter.use_mailhog == 'y' %}
-      - mailhog
-      {%- endif %}
     volumes:
       - .:/app
     env_file:
@@ -52,9 +49,6 @@ services:
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
-      - mailhog
-      {%- endif %}
     ports: []
     command: /start-celeryworker
 
@@ -64,9 +58,6 @@ services:
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
-      - mailhog
-      {%- endif %}
     ports: []
     command: /start-celerybeat
 

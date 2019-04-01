@@ -60,12 +60,6 @@ def test_default_configuration(cookies, context):
     check_paths(paths)
 
 
-@pytest.fixture(params=["use_mailhog", "use_celery", "windows"])
-def feature_context(request, context):
-    context.update({request.param: "y"})
-    return context
-
-
 def test_enabled_features(cookies, feature_context):
     result = cookies.bake(extra_context=feature_context)
     assert result.exit_code == 0

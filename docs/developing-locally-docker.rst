@@ -160,17 +160,6 @@ django-debug-toolbar
 In order for ``django-debug-toolbar`` to work designate your Docker Machine IP with ``INTERNAL_IPS`` in ``local.py``.
 
 
-Mailhog
-~~~~~~~
-
-When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
-
-#. make sure ``mailhog`` container is up and running;
-
-#. open up ``http://127.0.0.1:8025``.
-
-.. _Mailhog: https://github.com/mailhog/MailHog/
-
 .. _`CeleryTasks`:
 
 Celery tasks in local development

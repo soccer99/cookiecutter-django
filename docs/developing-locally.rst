@@ -74,50 +74,6 @@ First things first.
 .. _direnv: https://direnv.net/
 
 
-Setup Email Backend
--------------------
-
-MailHog
-~~~~~~~
-
-.. note:: In order for the project to support MailHog_ it must have been bootstrapped with ``use_mailhog`` set to ``y``.
-
-MailHog is used to receive emails during development, it is written in Go and has no external dependencies.
-
-For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
-
-#. `Download the latest MailHog release`_ for your OS.
-
-#. Rename the build to ``MailHog``.
-
-#. Copy the file to the project root.
-
-#. Make it executable: ::
-
-    $ chmod +x MailHog
-
-#. Spin up another terminal window and start it there: ::
-
-    ./MailHog
-
-#. Check out `<http://127.0.0.1:8025/>`_ to see how it goes.
-
-Now you have your own mail server running locally, ready to receive whatever you send it.
-
-.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog
-
-Console
-~~~~~~~
-
-.. note:: If you have generated your project with ``use_mailhog`` set to ``n`` this will be a default setup.
-
-Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``.
-
-In production, we have Mailgun_ configured to have your back!
-
-.. _Mailgun: https://www.mailgun.com/
-
-
 Celery
 ------
 If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
