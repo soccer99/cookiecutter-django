@@ -46,24 +46,6 @@ def remove_gplv3_files():
         os.remove(file_name)
 
 
-def remove_pycharm_files():
-    idea_dir_path = ".idea"
-    if os.path.exists(idea_dir_path):
-        shutil.rmtree(idea_dir_path)
-
-    docs_dir_path = os.path.join("docs", "pycharm")
-    if os.path.exists(docs_dir_path):
-        shutil.rmtree(docs_dir_path)
-
-
-def remove_docker_files():
-    shutil.rmtree("docker")
-
-    file_names = ["local.yml", "production.yml", ".dockerignore"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_utility_files():
     shutil.rmtree("utility")
 
